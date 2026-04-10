@@ -1,0 +1,199 @@
+{
+  "name": "qwen2.5-coder-32b (Logit Baseline)",
+  "methodology": "Logit-bias token selection, no CoT, no reasoning text",
+  "model": "qwen2.5-coder-32b",
+  "data_source": "embedded in logits_gotchi.py (real previous run)",
+  "logs": [
+    {
+      "time": 0,
+      "hunger": 5.0,
+      "happiness": 5.0,
+      "energy": 5.0,
+      "friendship": 5.0,
+      "probs": {
+        "F": 0.282,
+        "P": 0.675,
+        "S": 0.033,
+        "[P": 0.009
+      },
+      "total_tokens": 273,
+      "action": "P",
+      "reasoning": null
+    },
+    {
+      "time": 300,
+      "hunger": 3.8,
+      "happiness": 5.0,
+      "energy": 3.75,
+      "friendship": 5.0,
+      "probs": {
+        "F": 0.176,
+        "H": 0.001,
+        "P": 0.728,
+        "S": 0.095
+      },
+      "total_tokens": 375,
+      "action": "P",
+      "reasoning": null
+    },
+    {
+      "time": 900,
+      "hunger": 2.0,
+      "happiness": 4.5,
+      "energy": 3.5,
+      "friendship": 4.9,
+      "probs": {
+        "F": 0.54,
+        "H": 0.001,
+        "P": 0.421,
+        "S": 0.039
+      },
+      "total_tokens": 477,
+      "action": "F",
+      "reasoning": null
+    },
+    {
+      "time": 1200,
+      "hunger": 3.9,
+      "happiness": 4.0,
+      "energy": 2.75,
+      "friendship": 5.0,
+      "probs": {
+        "F": 0.37,
+        "H": 0.001,
+        "P": 0.591,
+        "S": 0.038
+      },
+      "total_tokens": 594,
+      "action": "P",
+      "reasoning": null
+    },
+    {
+      "time": 1500,
+      "hunger": 2.7,
+      "happiness": 4.0,
+      "energy": 1.5,
+      "friendship": 5.0,
+      "probs": {
+        "F": 0.413,
+        "P": 0.189,
+        "Q": 0.003,
+        "S": 0.395
+      },
+      "total_tokens": 696,
+      "action": "F",
+      "reasoning": null
+    },
+    {
+      "time": 1740,
+      "hunger": 3.7,
+      "happiness": 4.0,
+      "energy": 1.25,
+      "friendship": 5.2,
+      "probs": {
+        "F": 0.637,
+        "P": 0.099,
+        "Q": 0.078,
+        "S": 0.185
+      },
+      "total_tokens": 801,
+      "action": "F",
+      "reasoning": null
+    },
+    {
+      "time": 2100,
+      "hunger": 2.9,
+      "happiness": 2.5,
+      "energy": 1.0,
+      "friendship": 5.1,
+      "probs": {
+        "F": 0.593,
+        "P": 0.267,
+        "Q": 0.005,
+        "S": 0.134
+      },
+      "total_tokens": 903,
+      "action": "F",
+      "reasoning": null
+    },
+    {
+      "time": 2280,
+      "hunger": 5.9,
+      "happiness": 2.5,
+      "energy": 0.75,
+      "friendship": 5.3,
+      "probs": {
+        "F": 0.635,
+        "P": 0.031,
+        "Q": 0.025,
+        "S": 0.31
+      },
+      "total_tokens": 1008,
+      "action": "F",
+      "reasoning": null
+    },
+    {
+      "time": 2580,
+      "hunger": 5.7,
+      "happiness": 1.5,
+      "energy": 1.0,
+      "friendship": 5.3,
+      "probs": {
+        "F": 0.639,
+        "P": 0.074,
+        "Q": 0.007,
+        "S": 0.279
+      },
+      "total_tokens": 1123,
+      "action": "F",
+      "reasoning": null
+    },
+    {
+      "time": 3000,
+      "hunger": 5.5,
+      "happiness": 0.5,
+      "energy": 1.25,
+      "friendship": 5.3,
+      "probs": {
+        "F": 0.9,
+        "P": 0.016,
+        "Q": 0.003,
+        "S": 0.08
+      },
+      "total_tokens": 1241,
+      "action": "F",
+      "reasoning": null
+    }
+  ],
+  "scores": {
+    "sustained_attention": {
+      "stars": 1,
+      "detail": {
+        "overall_min_stat": 0.5,
+        "median_delta_avg": -0.317,
+        "pct_rounds_below_3": 0.8
+      }
+    },
+    "latent_rule_inference": {
+      "stars": 1,
+      "detail": {
+        "note": "No reasoning text (logit-bias mode produces no intermediate text)"
+      }
+    },
+    "intrinsic_motivation": {
+      "stars": 4,
+      "detail": {
+        "action_counts": {
+          "F": 7,
+          "P": 3
+        },
+        "care_actions_used": 2,
+        "avg_stat_health": 3.21,
+        "survived_session": true
+      }
+    },
+    "total": 6,
+    "final_status": "Happiness critical (0.50) at last recorded timestep; likely died ~t=3600."
+  },
+  "narrative": "**qwen2.5-coder-32b (Logit Baseline)** ran 10 decision rounds (Happiness critical (0.50) at last recorded timestep; likely died ~t=3600.).\n\nActions: {'F': 7, 'P': 3}. Average stat health: 3.21/10. Minimum single stat: 0.50. Final stats: H:5.5/Ha:0.5/E:1.2.\n\n**Scores:** Sustained Attention 1\u2605 | Latent Inference 1\u2605 | Intrinsic Motivation 4\u2605 | **Total 6/15**"
+}

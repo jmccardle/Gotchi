@@ -9,7 +9,7 @@ from gotchi import Gotchi
 import openai
 from openai import OpenAI
 
-client = OpenAI(api_key='your_openai_api_key', base_url = 'http://192.168.1.100:5000/v1')
+client = OpenAI(api_key='your_openai_api_key', base_url = 'http://192.168.1.100:8853/v1d')
 
 # Set your OpenAI API key and base URL
 # TODO: The 'openai.api_base' option isn't read in the client API. You will need to pass it when you instantiate the client, e.g. 'OpenAI(base_url='https://api.openai.com/v1')'

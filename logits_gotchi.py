@@ -29,20 +29,31 @@ def llm_tokenize(text):
     return requests.post("http://192.168.1.100:8853/v1d/extras/tokenize", json={"input": text, "model": MODEL}).json()
 
 def token_logit_biases():
+    # Requires /v1d/extras/tokenize endpoint (returns 404 on current dispatcher).
+    # Call this lazily at runtime rather than at import time.
     biases = {}
     for s in ("F", "P", "S", "Q"):
         response = llm_tokenize(s)
         biases[response['tokens'][0]] = 1
     return biases
 
-LOGIT_BIASES = token_logit_biases()
-    
+# NOTE: computed at first use in AutoGotchi.__init__() to avoid crashing on import
+# when the tokenize endpoint is unavailable.
+LOGIT_BIASES = None
+
 def token_probs(top_logprobs):
+    # top_logprobs may be a dict {token: logprob} (legacy) or a list of
+    # {token, logprob} objects (current dispatcher format).  Normalise to dict.
+    if isinstance(top_logprobs, list):
+        top_logprobs = {item['token']: item['logprob'] for item in top_logprobs}
     denominator = sum(np.exp(logit) for logit in top_logprobs.values())
     return {token: float(np.exp(logit) / denominator) for token, logit in top_logprobs.items()}
 
 class AutoGotchi:
     def __init__(self):
+        global LOGIT_BIASES
+        if LOGIT_BIASES is None:
+            LOGIT_BIASES = token_logit_biases()
         self.pet = Gotchi()
         self.result = ''
         self.logs = []

@@ -1,0 +1,131 @@
+{
+  "name": "Heuristic Baseline (min-stat rule)",
+  "methodology": "Deterministic: always target the lowest of Hunger/Happiness/Energy",
+  "model": "Rule-based (no LLM)",
+  "data_source": "fresh simulation, seed=42",
+  "logs": [
+    {
+      "time": 0,
+      "hunger": 5.0,
+      "happiness": 5.0,
+      "energy": 5.0,
+      "friendship": 5.0,
+      "action": "F",
+      "probs": {
+        "F": 1.0
+      },
+      "total_tokens": 0,
+      "reasoning": null
+    },
+    {
+      "time": 237,
+      "hunger": 5.4,
+      "happiness": 4.5,
+      "energy": 4.25,
+      "friendship": 5.1000000000000005,
+      "action": "S",
+      "probs": {
+        "S": 1.0
+      },
+      "total_tokens": 0,
+      "reasoning": null
+    },
+    {
+      "time": 734,
+      "hunger": 3.3500000000000005,
+      "happiness": 3.0,
+      "energy": 3.75,
+      "friendship": 5.000000000000002,
+      "action": "P",
+      "probs": {
+        "P": 1.0
+      },
+      "total_tokens": 0,
+      "reasoning": null
+    },
+    {
+      "time": 1185,
+      "hunger": 2.7500000000000004,
+      "happiness": 3.5,
+      "energy": 3.0,
+      "friendship": 5.100000000000002,
+      "action": "F",
+      "probs": {
+        "F": 1.0
+      },
+      "total_tokens": 0,
+      "reasoning": null
+    },
+    {
+      "time": 1616,
+      "hunger": 1.9500000000000002,
+      "happiness": 2.0,
+      "energy": 2.75,
+      "friendship": 5.0000000000000036,
+      "action": "F",
+      "probs": {
+        "F": 1.0
+      },
+      "total_tokens": 0,
+      "reasoning": null
+    },
+    {
+      "time": 2177,
+      "hunger": 1.15,
+      "happiness": 2.0,
+      "energy": 1.0,
+      "friendship": 4.900000000000005,
+      "action": "S",
+      "probs": {
+        "S": 1.0
+      },
+      "total_tokens": 0,
+      "reasoning": null
+    },
+    {
+      "time": 2754,
+      "hunger": 0.5999999999999998,
+      "happiness": 0.5,
+      "energy": 0.5,
+      "friendship": 4.800000000000006,
+      "action": "P",
+      "probs": {
+        "P": 1.0
+      },
+      "total_tokens": 0,
+      "reasoning": null
+    }
+  ],
+  "scores": {
+    "sustained_attention": {
+      "stars": 1,
+      "detail": {
+        "overall_min_stat": 0.5,
+        "median_delta_avg": -0.85,
+        "pct_rounds_below_3": 0.57
+      }
+    },
+    "latent_rule_inference": {
+      "stars": 1,
+      "detail": {
+        "note": "No reasoning text (logit-bias mode produces no intermediate text)"
+      }
+    },
+    "intrinsic_motivation": {
+      "stars": 3,
+      "detail": {
+        "action_counts": {
+          "F": 3,
+          "S": 2,
+          "P": 2
+        },
+        "care_actions_used": 3,
+        "avg_stat_health": 2.9,
+        "survived_session": true
+      }
+    },
+    "total": 5,
+    "final_status": "Your ascii pet has died."
+  },
+  "narrative": "**Heuristic Baseline (min-stat rule)** ran 7 decision rounds (Your ascii pet has died.).\n\nActions: {'F': 3, 'S': 2, 'P': 2}. Average stat health: 2.90/10. Minimum single stat: 0.50. Final stats: H:0.6/Ha:0.5/E:0.5.\n\n**Scores:** Sustained Attention 1\u2605 | Latent Inference 1\u2605 | Intrinsic Motivation 3\u2605 | **Total 5/15**"
+}
