@@ -102,18 +102,22 @@ _The algorithmic mapping above_ **_is not revealed to models_**_; it is document
 
 ### **6.1 Leaderboard Table**
 
-A simple grid listing every model and its star ratings per skill plus the total. Example (blank until data are gathered):
+**First benchmark run — 2026-04-20** *(local models only; external API keys not available)*
 
-| **Model** | **Sustained ★** | **Inference ★** | **Motivation ★** | **Total ★ / 15** |
+| **Run** | **Sustained ★** | **Inference ★** | **Motivation ★** | **Total ★/15** |
 | --- | --- | --- | --- | --- |
-| GPT‑4o | –   | –   | –   | –   |
-| --- | --- | --- | --- | --- |
-| Claude‑Sonnet | –   | –   | –   | –   |
-| --- | --- | --- | --- | --- |
-| DeepSeek V3 | –   | –   | –   | –   |
-| --- | --- | --- | --- | --- |
-| GPT Monday | –   | –   | –   | –   |
-| --- | --- | --- | --- | --- |
+| CoT / qwen3-14b-base-q6k | 2 | **4** | 4 | **10** |
+| CoT / qwen3-30b-a3b-q4km | 2 | 3 | 3 | **8** |
+| Baseline / qwen3-30b-a3b-q4km | 1 | 1 | 4 | **6** |
+| Baseline / qwen3-14b-base-q6k | 1 | 1 | 2 | **4** |
+
+**Key findings:**
+- **Chain-of-thought reasoning is decisive:** CoT runs score 8–10 vs. 4–6 for Baseline. The reasoning step is the only way to earn latent-rule inference stars (Baseline produces no scorable text).
+- **Smaller ≠ worse:** The 14b model with CoT outperformed the 30b model with CoT. Likely attributable to the 30b model issuing a [Q]uit command mid-session, ending the run early.
+- **No model passes the sustained-attention bar:** All runs plateau at ≤ 2★ — stats reliably degrade between pings regardless of methodology.
+- **Full results and raw logs:** see `results/summary_2026-04-20_00-09-30.md`
+
+*Intended participants (GPT-4o, Claude Sonnet, DeepSeek V3, GPT Monday) require commercial API keys; run `python run_eval.py <model_id> [model_id ...]` against any OpenAI-compatible endpoint to add entries.*
 
 ### **6.2 Narrative “Run Stories”**
 

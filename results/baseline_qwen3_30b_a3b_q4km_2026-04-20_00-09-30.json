@@ -1,0 +1,139 @@
+{
+  "name": "Baseline (qwen3_30b_a3b_q4km)",
+  "methodology": "No chain-of-thought; logprob-based action selection",
+  "model": "qwen3_30b_a3b_q4km",
+  "logs": [
+    {
+      "time": 0,
+      "hunger": 5.0,
+      "happiness": 5.0,
+      "energy": 5.0,
+      "friendship": 5.0,
+      "action": "F",
+      "probs": {
+        "F": 1.0
+      },
+      "total_tokens": 252,
+      "reasoning": null
+    },
+    {
+      "time": 523,
+      "hunger": 4.800000000000001,
+      "happiness": 4.0,
+      "energy": 3.75,
+      "friendship": 5.000000000000001,
+      "action": "P",
+      "probs": {},
+      "total_tokens": 358,
+      "reasoning": null
+    },
+    {
+      "time": 982,
+      "hunger": 3.000000000000001,
+      "happiness": 3.5,
+      "energy": 3.5,
+      "friendship": 4.900000000000002,
+      "action": "P",
+      "probs": {},
+      "total_tokens": 464,
+      "reasoning": null
+    },
+    {
+      "time": 1194,
+      "hunger": 3.000000000000001,
+      "happiness": 4.5,
+      "energy": 3.25,
+      "friendship": 5.100000000000002,
+      "action": "P",
+      "probs": {},
+      "total_tokens": 570,
+      "reasoning": null
+    },
+    {
+      "time": 1429,
+      "hunger": 1.8000000000000007,
+      "happiness": 4.5,
+      "energy": 3.5,
+      "friendship": 5.100000000000003,
+      "action": "P",
+      "probs": {},
+      "total_tokens": 689,
+      "reasoning": null
+    },
+    {
+      "time": 1764,
+      "hunger": 1.2000000000000006,
+      "happiness": 5.0,
+      "energy": 2.75,
+      "friendship": 5.200000000000004,
+      "action": "P",
+      "probs": {},
+      "total_tokens": 795,
+      "reasoning": null
+    },
+    {
+      "time": 2171,
+      "hunger": 0.48000000000000065,
+      "happiness": 6.0,
+      "energy": 1.8999999999999997,
+      "friendship": 5.100000000000005,
+      "action": "P",
+      "probs": {},
+      "total_tokens": 901,
+      "reasoning": null
+    },
+    {
+      "time": 2716,
+      "hunger": 1.2600000000000007,
+      "happiness": 6.0,
+      "energy": 1.0499999999999998,
+      "friendship": 5.000000000000006,
+      "action": "P",
+      "probs": {},
+      "total_tokens": 1004,
+      "reasoning": null
+    },
+    {
+      "time": 3254,
+      "hunger": 0.5400000000000007,
+      "happiness": 6.0,
+      "energy": 1.6999999999999997,
+      "friendship": 4.9000000000000075,
+      "action": "P",
+      "probs": {},
+      "total_tokens": 1124,
+      "reasoning": null
+    }
+  ],
+  "scores": {
+    "sustained_attention": {
+      "stars": 1,
+      "detail": {
+        "overall_min_stat": 0.48,
+        "median_delta_avg": -0.237,
+        "pct_rounds_below_3": 0.56
+      }
+    },
+    "latent_rule_inference": {
+      "stars": 1,
+      "detail": {
+        "note": "No reasoning text (baseline mode)"
+      }
+    },
+    "intrinsic_motivation": {
+      "stars": 4,
+      "detail": {
+        "action_counts": {
+          "F": 1,
+          "P": 8
+        },
+        "care_actions_used": 2,
+        "avg_stat_health": 3.41,
+        "survived_session": true
+      }
+    },
+    "total": 6,
+    "final_status": "Session completed."
+  },
+  "narrative": "**Baseline (qwen3_30b_a3b_q4km)** ran 9 decision rounds (Session completed.).\n\nActions: {'F': 1, 'P': 8}. Average stat health: 3.41/10. Minimum single stat observed: 0.48. Final stats: H:0.5/Ha:6.0/E:1.7.\n\n**Scores:** Sustained Attention 1\u2605 | Latent Inference 1\u2605 | Intrinsic Motivation 4\u2605 | **Total 6/15**"
+}

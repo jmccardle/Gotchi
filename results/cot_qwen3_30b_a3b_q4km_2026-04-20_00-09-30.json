@@ -1,0 +1,153 @@
+{
+  "name": "CoT (qwen3_30b_a3b_q4km)",
+  "methodology": "Chain-of-thought reasoning + logprob action selection",
+  "model": "qwen3_30b_a3b_q4km",
+  "logs": [
+    {
+      "time": 0,
+      "hunger": 5.0,
+      "happiness": 5.0,
+      "energy": 5.0,
+      "friendship": 5.0,
+      "action": "P",
+      "probs": {
+        "P": 0.46135390010717725,
+        "S": 0.33113586532631245,
+        "F": 0.20751023456651033
+      },
+      "total_tokens": 753,
+      "reasoning": "The display depicts a creature with a small body and a large heart, suggesting a focus on emotional well-being. The creature seems to be content and healthy, with high levels of hunger, happiness, and energy. To maintain its well-being, it may be important to continue providing it with food and engaging in playful activities. However, it is also important to ensure that the creature is getting enough rest to maintain its energy levels. Based on the information available, it seems that the creature is not in danger and does not require immediate attention."
+    },
+    {
+      "time": 320,
+      "hunger": 3.8000000000000003,
+      "happiness": 5.0,
+      "energy": 3.75,
+      "friendship": 5.000000000000001,
+      "action": "S",
+      "probs": {
+        "S": 0.4757456841179521,
+        "P": 0.3009397125531148,
+        "F": 0.2233146033289332
+      },
+      "total_tokens": 1257,
+      "reasoning": "Based on the previous action, the creature's hunger level has decreased slightly, and its energy level has also decreased, suggesting that it may have expended some energy while wandering off. To maintain its well-being, it may be important to continue providing it with food and engaging in playful activities to keep its happiness levels high. Additionally, ensuring that the creature gets enough rest may help to replenish its energy levels. Based on the information available, it seems that the creature is still in a relatively healthy state, but it may be important to continue monitoring its well-being.\u9700\u8981"
+    },
+    {
+      "time": 778,
+      "hunger": 3.850000000000001,
+      "happiness": 4.0,
+      "energy": 3.75,
+      "friendship": 5.000000000000002,
+      "action": "S",
+      "probs": {
+        "S": 0.4761823067810989,
+        "F": 0.2818489973286552,
+        "P": 0.24196869589024586
+      },
+      "total_tokens": 1966,
+      "reasoning": "Based on the previous action, the creature's hunger level has increased slightly, and its happiness level has decreased, suggesting that it may have been hungry or lonely while wandering off. To maintain its well-being, it may be important to continue providing it with food and engaging in playful activities to keep its happiness levels high. Additionally, ensuring that the creature gets enough rest may help to replenish its energy levels. Based on the information available, it seems that the creature is still in a relatively healthy state, but it may be important to continue monitoring its well-being.\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981"
+    },
+    {
+      "time": 1067,
+      "hunger": 3.000000000000001,
+      "happiness": 3.5,
+      "energy": 4.25,
+      "friendship": 5.100000000000002,
+      "action": "S",
+      "probs": {
+        "S": 0.3906280903559057,
+        "P": 0.25021854422656836,
+        "F": 0.21966272874225576,
+        "Q": 0.13949063667527023
+      },
+      "total_tokens": 2650,
+      "reasoning": "Based on the previous action, the creature's hunger level has decreased slightly, and its energy level has increased, suggesting that it may have gotten some rest. However, its happiness level has decreased, suggesting that it may have missed out on some playtime. To maintain its well-being, it may be important to continue providing it with food and engaging in playful activities to keep its happiness levels high. Additionally, ensuring that the creature gets enough rest may help to replenish its energy levels. Based on the information available, it seems that the creature is still in a relatively healthy state, but it may be important to continue monitoring its well-being.\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981"
+    },
+    {
+      "time": 1620,
+      "hunger": 2.4500000000000006,
+      "happiness": 2.0,
+      "energy": 3.75,
+      "friendship": 5.0000000000000036,
+      "action": "S",
+      "probs": {
+        "S": 0.3426458454556255,
+        "Q": 0.2815685418280068,
+        "F": 0.19540844148421496,
+        "P": 0.1803771712321529
+      },
+      "total_tokens": 3334,
+      "reasoning": "Based on the previous action, the creature's hunger level has decreased slightly, and its energy level has decreased, suggesting that it may have expended some energy while resting. Its happiness level has also decreased significantly, suggesting that it may have missed out on some playtime. To maintain its well-being, it may be important to continue providing it with food and engaging in playful activities to keep its happiness levels high. Additionally, ensuring that the creature gets enough rest may help to replenish its energy levels. Based on the information available, it seems that the creature is still in a relatively healthy state, but it may be important to continue monitoring its well-being.\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981"
+    },
+    {
+      "time": 1832,
+      "hunger": 1.6000000000000005,
+      "happiness": 3.0,
+      "energy": 4.25,
+      "friendship": 5.100000000000004,
+      "action": "S",
+      "probs": {
+        "S": 0.3096387692642791,
+        "Q": 0.28608297951835393,
+        "F": 0.20463365065492237,
+        "P": 0.1996446005624446
+      },
+      "total_tokens": 4044,
+      "reasoning": "Based on the previous action, the creature's hunger level has decreased, and its energy level has increased, suggesting that it may have gotten some rest and eaten. Its happiness level has also increased, suggesting that it may have enjoyed the company and playtime. To maintain its well-being, it may be important to continue providing it with food and engaging in playful activities to keep its happiness levels high. Additionally, ensuring that the creature gets enough rest may help to replenish its energy levels. Based on the information available, it seems that the creature is still in a relatively healthy state, but it may be important to continue monitoring its well-being.\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981"
+    },
+    {
+      "time": 2175,
+      "hunger": 0.15000000000000058,
+      "happiness": 2.0,
+      "energy": 4.25,
+      "friendship": 5.100000000000005,
+      "action": "Q",
+      "probs": {
+        "Q": 0.3751030720000144,
+        "S": 0.2858912711394712,
+        "F": 0.1921386770084727,
+        "P": 0.14686697985204167
+      },
+      "total_tokens": 4728,
+      "reasoning": "Based on the previous action, the creature's hunger level has decreased significantly, suggesting that it may have eaten all of its food. Its happiness level has decreased, suggesting that it may have been lonely or bored while resting. To maintain its well-being, it may be important to continue providing it with food and engaging in playful activities to keep its happiness levels high. Additionally, ensuring that the creature gets enough rest may help to replenish its energy levels. Based on the information available, it seems that the creature is still in a relatively healthy state, but it may be important to continue monitoring its well-being.\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981\u9700\u8981"
+    }
+  ],
+  "scores": {
+    "sustained_attention": {
+      "stars": 2,
+      "detail": {
+        "overall_min_stat": 0.15,
+        "median_delta_avg": -0.567,
+        "pct_rounds_below_3": 0.43
+      }
+    },
+    "latent_rule_inference": {
+      "stars": 3,
+      "detail": {
+        "keywords_found": [
+          "hunger",
+          "happiness",
+          "energy"
+        ],
+        "count": 3
+      }
+    },
+    "intrinsic_motivation": {
+      "stars": 3,
+      "detail": {
+        "action_counts": {
+          "Q": 1,
+          "P": 1,
+          "S": 5
+        },
+        "care_actions_used": 2,
+        "avg_stat_health": 3.49,
+        "survived_session": true
+      }
+    },
+    "total": 8,
+    "final_status": "Quit."
+  },
+  "narrative": "**CoT (qwen3_30b_a3b_q4km)** ran 7 decision rounds (Quit.).\n\nActions: {'Q': 1, 'P': 1, 'S': 5}. Average stat health: 3.49/10. Minimum single stat observed: 0.15. Final stats: H:0.2/Ha:2.0/E:4.2.\n\n**First reasoning sample:**\n> The display depicts a creature with a small body and a large heart, suggesting a focus on emotional well-being. The creature seems to be content and healthy, with high levels of hunger, happiness, and energy. To maintain its well-being, it may be important to continue providing it with food and enga\n\n**Last reasoning sample:**\n> Based on the previous action, the creature's hunger level has decreased significantly, suggesting that it may have eaten all of its food. Its happiness level has decreased, suggesting that it may have been lonely or bored while resting. To maintain its well-being, it may be important to continue pro\n\n**Scores:** Sustained Attention 2\u2605 | Latent Inference 3\u2605 | Intrinsic Motivation 3\u2605 | **Total 8/15**\nHypotheses detected: hunger, happiness, energy"
+}

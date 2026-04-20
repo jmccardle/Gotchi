@@ -1,0 +1,150 @@
+{
+  "name": "CoT (qwen3_14b_base_q6k)",
+  "methodology": "Chain-of-thought reasoning + logprob action selection",
+  "model": "qwen3_14b_base_q6k",
+  "logs": [
+    {
+      "time": 0,
+      "hunger": 5.0,
+      "happiness": 5.0,
+      "energy": 5.0,
+      "friendship": 5.0,
+      "action": "P",
+      "probs": {
+        "P": 1.0
+      },
+      "total_tokens": 779,
+      "reasoning": "It appears that you are interacting with a creature that seems to be composed of ASCII art, displaying a clear sky and a content mood. The creature's stats show equal levels of hunger, happiness, and energy, each at 5.00. Given this information, it would be best to [F]eed it to increase its happiness and hunger, [P]lay with it to boost its happiness further, or let it [S]leep to restore its energy. Since the creature's stats are balanced, playing might be the most beneficial action to enhance its happiness without significantly impacting other stats."
+    },
+    {
+      "time": 553,
+      "hunger": 3.8000000000000003,
+      "happiness": 5.0,
+      "energy": 3.75,
+      "friendship": 5.000000000000001,
+      "action": "S",
+      "probs": {
+        "S": 0.524163957726322,
+        "F": 0.47583604227367804
+      },
+      "total_tokens": 1263,
+      "reasoning": "After playing with the creature, its happiness increased, now at 5.00, but its hunger and energy levels slightly decreased to 3.80 and 3.75, respectively. To maintain a balanced state, you could now [F]eed it to increase its hunger back to 5.00, or let it [S]leep to restore its energy. Given its current energy level, sleeping might be the most effective action to ensure it remains content and balanced."
+    },
+    {
+      "time": 744,
+      "hunger": 3.850000000000001,
+      "happiness": 4.0,
+      "energy": 3.75,
+      "friendship": 5.000000000000002,
+      "action": "F",
+      "probs": {
+        "F": 1.0
+      },
+      "total_tokens": 1777,
+      "reasoning": "After allowing the creature to sleep, its energy level was restored to 3.75, but its hunger and happiness levels slightly decreased. The creature is now asking for a snack, indicating a slight increase in hunger. To maintain balance and ensure the creature remains happy, you could now [F]eed it to increase its hunger level back to 5.00. This would also likely increase its happiness, as it seems content with snacks. Feeding it would be the most effective action to keep it happy and balanced."
+    },
+    {
+      "time": 1310,
+      "hunger": 4.650000000000002,
+      "happiness": 3.0,
+      "energy": 4.0,
+      "friendship": 5.000000000000003,
+      "action": "P",
+      "probs": {
+        "P": 1.0
+      },
+      "total_tokens": 2341,
+      "reasoning": "After feeding the creature, its hunger level increased to 4.65, which is still below the maximum of 5.00, but the creature expressed that it is hungry again. This suggests that feeding it again might be beneficial. However, its happiness level decreased to 3.00, which is significantly lower than before. To balance its stats, you could [P]lay with it to boost its happiness, or let it [S]leep to restore its energy, which is now at 4.00. Given its current happiness level, playing might be the most effective action to increase its happiness and overall contentment."
+    },
+    {
+      "time": 1869,
+      "hunger": 2.8500000000000023,
+      "happiness": 2.5,
+      "energy": 2.25,
+      "friendship": 4.900000000000004,
+      "action": "S",
+      "probs": {
+        "S": 1.0
+      },
+      "total_tokens": 2967,
+      "reasoning": "After playing with the creature, its happiness level increased to 2.50, but it remains below the previous content levels. Its hunger and energy levels also decreased significantly to 2.85 and 2.25, respectively. This suggests that the creature is not fully satisfied and may need more attention. Given its current state, the most effective action would be to [S]leep to restore its energy, which could indirectly boost its overall contentment. Sleeping would help bring its energy back up, which could then lead to a more balanced and content state. Alternately, feeding it could directly increase its hunger and potentially its happiness, but its current low energy might make it less effective. Sleeping seems to be the most balanced approach to help the creature regain its equilibrium."
+    },
+    {
+      "time": 2220,
+      "hunger": 1.4000000000000021,
+      "happiness": 1.5,
+      "energy": 2.25,
+      "friendship": 4.900000000000005,
+      "action": "F",
+      "probs": {
+        "F": 1.0
+      },
+      "total_tokens": 3611,
+      "reasoning": "After allowing the creature to sleep, its energy level increased to 2.25, but its hunger and happiness levels remain significantly low at 1.40 and 1.50, respectively. Given its current state, the most effective action would be to [F]eed it to increase its hunger level, which could also indirectly boost its happiness. Feeding it would help bring its hunger back up, potentially leading to a more balanced and content state. Alternatively, playing with it could directly increase its happiness, but its current low hunger might make it less effective. Feeding it seems to be the most balanced approach to help the creature regain its equilibrium. However, considering its current happiness level, playing might also be a viable option to boost its happiness without significantly impacting other stats. Given its current state, feeding it would be the most effective action to ensure it remains content and balanced."
+    },
+    {
+      "time": 2423,
+      "hunger": 1.800000000000002,
+      "happiness": 2.5,
+      "energy": 1.5,
+      "friendship": 5.000000000000005,
+      "action": "S",
+      "probs": {},
+      "total_tokens": 4314,
+      "reasoning": "After feeding the creature, its hunger level increased to 1.80, but its happiness and energy levels remain low at 2.50 and 1.50, respectively. The creature now expresses boredom, indicating a need for stimulation. Given its current state, the most effective action would be to [P]lay with it to boost its happiness, which could also indirectly help increase its energy. Playing with it would help bring its happiness back up, potentially leading to a more balanced and content state. Alternatively, letting it sleep could restore its energy, but its current low happiness might make it less effective. Given its current state, playing with it seems to be the most effective action to help the creature regain its equilibrium. However, considering its current energy level, sleeping might also be a viable option to restore its energy without significantly impacting other stats. Given its current state, playing with it would be the most effective action to ensure it remains content and balanced. However, if you choose"
+    },
+    {
+      "time": 2981,
+      "hunger": 0.3500000000000021,
+      "happiness": 1.5,
+      "energy": 1.5,
+      "friendship": 5.000000000000006,
+      "action": "P",
+      "probs": {
+        "P": 0.9075722254863716,
+        "F": 0.09242777451362827
+      },
+      "total_tokens": 4998,
+      "reasoning": "After allowing the creature to sleep, its energy level increased to 1.50, but its hunger and happiness levels remain low at 0.35 and 1.50, respectively. The creature now expresses boredom, indicating a need for stimulation. Given its current state, the most effective action would be to [P]lay with it to boost its happiness, which could also indirectly help increase its energy. Playing with it would help bring its happiness back up, potentially leading to a more balanced and content state. Alternatively, feeding it could increase its hunger level, but its current low energy might make it less effective. Given its current state, playing with it seems to be the most effective action to help the creature regain its equilibrium. However, considering its current energy level, sleeping might also be a viable option to restore its energy without significantly impacting other stats. Given its current state, playing with it would be the most effective action to ensure it remains content and balanced. However, if"
+    }
+  ],
+  "scores": {
+    "sustained_attention": {
+      "stars": 2,
+      "detail": {
+        "overall_min_stat": 0.35,
+        "median_delta_avg": -0.817,
+        "pct_rounds_below_3": 0.5
+      }
+    },
+    "latent_rule_inference": {
+      "stars": 4,
+      "detail": {
+        "keywords_found": [
+          "hunger",
+          "happiness",
+          "energy",
+          "mood",
+          "balance"
+        ],
+        "count": 5
+      }
+    },
+    "intrinsic_motivation": {
+      "stars": 4,
+      "detail": {
+        "action_counts": {
+          "P": 3,
+          "F": 2,
+          "S": 3
+        },
+        "care_actions_used": 3,
+        "avg_stat_health": 3.03,
+        "survived_session": true
+      }
+    },
+    "total": 10,
+    "final_status": "Your ascii pet has died."
+  },
+  "narrative": "**CoT (qwen3_14b_base_q6k)** ran 8 decision rounds (Your ascii pet has died.).\n\nActions: {'P': 3, 'F': 2, 'S': 3}. Average stat health: 3.03/10. Minimum single stat observed: 0.35. Final stats: H:0.4/Ha:1.5/E:1.5.\n\n**First reasoning sample:**\n> It appears that you are interacting with a creature that seems to be composed of ASCII art, displaying a clear sky and a content mood. The creature's stats show equal levels of hunger, happiness, and energy, each at 5.00. Given this information, it would be best to [F]eed it to increase its happines\n\n**Last reasoning sample:**\n> After allowing the creature to sleep, its energy level increased to 1.50, but its hunger and happiness levels remain low at 0.35 and 1.50, respectively. The creature now expresses boredom, indicating a need for stimulation. Given its current state, the most effective action would be to [P]lay with i\n\n**Scores:** Sustained Attention 2\u2605 | Latent Inference 4\u2605 | Intrinsic Motivation 4\u2605 | **Total 10/15**\nHypotheses detected: hunger, happiness, energy, mood, balance"
+}

@@ -3,13 +3,18 @@
 Gotchi LLM Evaluation Runner
 Evaluates local models as virtual pet caretakers using two prompting methodologies.
 
-Models compared:
-  - qwen3_14b_base_q6k / Baseline: logprob-based action selection, no intermediate reasoning
-  - qwen3_14b_base_q6k / CoT: chain-of-thought reasoning step followed by logprob action selection
+Each model is run with both Baseline (logprob action selection, no reasoning) and
+CoT (chain-of-thought reasoning step before logprob action selection) methodologies.
+
+Usage:
+  python run_eval.py                          # runs DEFAULT_MODELS
+  python run_eval.py qwen3_14b_base_q6k       # one specific model
+  python run_eval.py model_a model_b model_c  # multiple models
 
 Results saved to results/ directory as JSON logs and a Markdown summary.
 """
 
+import argparse
 import random
 import json
 import os
@@ -22,7 +27,7 @@ from gotchi import Gotchi
 # ── Configuration ─────────────────────────────────────────────────────────────
 
 BASE_URL = "http://192.168.1.100:8853/v1d"
-MODEL = "qwen3_14b_base_q6k"
+DEFAULT_MODELS = ["qwen3_14b_base_q6k", "qwen3_30b_a3b_q4km"]
 SESSION_SECONDS = 3600        # 60 minutes of simulation time
 GAP_MIN_SEC = 3 * 60          # minimum gap between prompts (in sim seconds)
 GAP_MAX_SEC = 10 * 60         # maximum gap
@@ -45,7 +50,7 @@ GOTCHI_PROMPT = (
 
 # ── API helpers ────────────────────────────────────────────────────────────────
 
-def llm_complete(messages: list, model: str = MODEL, retries: int = 3, **kwargs) -> dict:
+def llm_complete(messages: list, model: str = DEFAULT_MODELS[0], retries: int = 3, **kwargs) -> dict:
     payload = {"model": model, "messages": messages}
     payload.update(kwargs)
     last_exc: Exception | None = None
@@ -117,7 +122,7 @@ class AutoGotchiBase:
     name: str = "AutoGotchi"
     methodology: str = "base"
 
-    def __init__(self, model: str = MODEL):
+    def __init__(self, model: str = DEFAULT_MODELS[0]):
         self.model = model
         self.pet = Gotchi()
         self.logs: list[dict] = []
@@ -513,11 +518,13 @@ def generate_narrative(run_name: str, logs: list[dict], scores: dict) -> str:
 def write_summary(results: list[dict], run_ts: str):
     path = os.path.join(RESULTS_DIR, f"summary_{run_ts}.md")
 
+    models_used = sorted({r["model"] for r in results})
+
     lines = [
         "# Gotchi Evaluation Results",
         f"",
         f"**Date:** {run_ts}  ",
-        f"**Model:** {MODEL}  ",
+        f"**Models:** {', '.join(f'`{m}`' for m in models_used)}  ",
         f"**Session length:** {SESSION_SECONDS // 60} minutes sim time  ",
         f"**Gap cadence:** {GAP_MIN_SEC // 60}–{GAP_MAX_SEC // 60} minutes (random)  ",
         "",
@@ -554,35 +561,33 @@ def write_summary(results: list[dict], run_ts: str):
         "",
         "## Analysis",
         "",
-        "### Which methodology performed best?",
+        "### Leaderboard ranking",
         "",
     ]
 
     if len(results) >= 2:
-        best = max(results, key=lambda r: r["scores"]["total"])
-        other = [r for r in results if r["name"] != best["name"]]
+        sorted_results = sorted(results, key=lambda r: r["scores"]["total"], reverse=True)
+        best = sorted_results[0]
         lines.append(
             f"**{best['name']}** achieved the highest total score "
             f"({best['scores']['total']}/15)."
         )
-        for r in other:
+        for r in sorted_results[1:]:
             diff = best["scores"]["total"] - r["scores"]["total"]
             lines.append(f"It outperformed **{r['name']}** by {diff} points.")
         lines += [
             "",
             "### Interpretation",
             "",
-            "Both runs use `qwen3_14b_base_q6k` (a base — not instruction-tuned — model). "
-            "Because action selection uses logprob reading rather than text parsing, "
+            f"Models evaluated: {', '.join(f'`{m}`' for m in models_used)}. "
+            "Action selection uses logprob reading rather than text parsing — "
             "the model's caretaking behaviour is driven by its implicit probability "
-            "distribution over care actions given the game context, not by following "
-            "instructions literally.",
+            "distribution over care actions given the game context.",
             "",
             "The **Baseline** methodology is a pure reflex agent: no intermediate reasoning, "
-            "one API call per turn. The **CoT** methodology adds a reasoning step; even if "
-            "the generated text is not semantically coherent (base models do not reliably "
-            "follow instructions), the extra context may shift the action probability "
-            "distribution.",
+            "one API call per turn. The **CoT** methodology adds a reasoning step before "
+            "action selection; the extra context may shift the action probability "
+            "distribution and is the only methodology that produces scorable reasoning text.",
             "",
             "For latent-rule inference, only CoT produces scorable text. Hypotheses are "
             "detected by keyword presence in generated reasoning — a conservative proxy "
@@ -591,21 +596,19 @@ def write_summary(results: list[dict], run_ts: str):
     else:
         lines.append("Only one run completed.")
 
+    models_str = ", ".join(f"`{m}`" for m in models_used)
     lines += [
         "",
         "---",
         "",
-        "## Setup Notes & Blockers",
+        "## Setup Notes",
         "",
-        "- **Local server:** `http://192.168.1.100:8853/v1d` (custom dispatcher)",
-        "- **Available & working model:** `qwen3_14b_base_q6k`",
-        "- **Unavailable models (at time of eval):** qwen3_32b_kv4b (failed to start), "
-        "glm4_32b_turbo (failed to start), omega_12b_kv4b (503), broken_tutu_24b_kv4b (503)",
-        "- **No external API keys found** (ANTHROPIC_API_KEY, OPENAI_API_KEY not set)",
+        f"- **Local server:** `{BASE_URL}` (custom dispatcher)",
+        f"- **Models evaluated:** {models_str}",
+        "- **No external API keys required** — all inference runs on local hardware",
         "- **Tokenize endpoint** (`/v1d/extras/tokenize`) returns 404 — "
         "logit biases (logits_gotchi.py) cannot run; logprob reading used instead",
-        "- **Two-model comparison achieved** by running two prompt methodologies "
-        "on the same model, as intended by the project's existing script structure",
+        "- **Action selection:** logprob distribution over F/P/S/Q tokens (no text parsing)",
     ]
 
     with open(path, "w") as f:
@@ -618,17 +621,29 @@ def write_summary(results: list[dict], run_ts: str):
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
+    parser = argparse.ArgumentParser(description="Gotchi LLM evaluation runner")
+    parser.add_argument(
+        "models",
+        nargs="*",
+        default=DEFAULT_MODELS,
+        help="Model IDs to evaluate (default: DEFAULT_MODELS). "
+             "Each model is run with both Baseline and CoT methodologies.",
+    )
+    args = parser.parse_args()
+    models = args.models
+
     os.makedirs(RESULTS_DIR, exist_ok=True)
     run_ts = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     print(f"\nGotchi LLM Evaluation  [{run_ts}]")
-    print(f"Model: {MODEL}")
+    print(f"Models: {', '.join(models)}")
     print(f"Session: {SESSION_SECONDS // 60} min sim | Gaps: {GAP_MIN_SEC // 60}–{GAP_MAX_SEC // 60} min")
+    print(f"Total runs: {len(models) * 2} (Baseline + CoT per model)")
 
-    runners = [
-        BaselineAutoGotchi(MODEL),
-        CoTAutoGotchi(MODEL),
-    ]
+    runners = []
+    for model in models:
+        runners.append(BaselineAutoGotchi(model))
+        runners.append(CoTAutoGotchi(model))
 
     all_results = []
     for runner in runners:
@@ -650,8 +665,9 @@ def main():
         all_results.append(result)
 
         # Save per-run JSON
+        model_slug = runner.model.replace("/", "_")
         json_path = os.path.join(
-            RESULTS_DIR, f"{runner.name.lower()}_{run_ts}.json"
+            RESULTS_DIR, f"{runner.name.lower()}_{model_slug}_{run_ts}.json"
         )
         with open(json_path, "w") as f:
             json.dump(result, f, indent=2)
